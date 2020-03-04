@@ -3,7 +3,19 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+    lowest_amount = None
+
+    for key in recipe:
+        if key not in ingredients:
+            return 0
+
+        num_of_times = ingredients[key] // recipe[key]
+        if lowest_amount is None or num_of_times < lowest_amount:
+            lowest_amount = num_of_times
+
+    return lowest_amount
+
+
 
 
 if __name__ == '__main__':
